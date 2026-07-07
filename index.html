@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中學資訊科技科組年度匯報</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="node_modules/p5/lib/p5.min.js"></script>
+  <script src="node_modules/plotly.js-dist-min/plotly.min.js"></script>
+</head>
+<body>
+  <canvas id="fallback-canvas" aria-hidden="true"></canvas>
+
+  <aside class="sidebar">
+    <div>
+      <p class="side-kicker">CDSJ5 · IT</p>
+      <h1>中學資訊科技科組</h1>
+    </div>
+    <nav aria-label="主要導覽">
+      <button class="nav-item active" data-page="curriculum">課程發展</button>
+      <button class="nav-item" data-page="achievements">競賽拔尖</button>
+      <button class="nav-item nav-highlight" data-page="f5-showcase">F5 成果展</button>
+      <button class="nav-item" data-page="transition">小中銜接</button>
+      <button class="nav-item" data-page="analytics">數據評鑑</button>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">INFORMATION TECHNOLOGY · 2025–2026</p>
+        <h2>讓課程成為<br>人才成長的軌跡。</h2>
+      </div>
+    </section>
+
+    <section class="page active" id="curriculum">
+      <header class="page-title">
+        <p>ANNUAL REPORT · 2025–2026</p>
+        <h2>課程發展</h2>
+        <span>F1–F6 縱向課程路線與年度重點</span>
+      </header>
+
+      <p class="lead">本年度將零散的工具教學，整理為一條<strong>縱向發展、對接基本學力、以實作成果為本</strong>的中學課程路線。</p>
+
+      <h3 class="section-title">本年度三項重點工作</h3>
+      <div class="feature-grid">
+        <article><strong>01</strong><h3>課程及基力對標</h3><p>完成初中及高中課程梳理，對應概念、應用、合作與責任四個範疇。</p></article>
+        <article><strong>02</strong><h3>專題實作與多元評核</h3><p>由單一操作練習轉向程式、硬件、作品、報告及課堂實作。</p></article>
+        <article><strong>03</strong><h3>課程與拔尖連結</h3><p>把編程、AI、網絡安全、網頁及小程序延伸至比賽與代表隊培育。</p></article>
+      </div>
+
+      <h3 class="section-title">F1–F6 課程路線</h3>
+      <div class="curriculum-list">
+        <article><b>F1</b><div><strong>核心內容：</strong>數碼基礎、Office、AI 短片、LEGO EV3<br><span>建立數碼表達與工程解難基礎</span></div></article>
+        <article><b>F2</b><div><strong>核心內容：</strong>Micro:bit、AutoCAD、Fusion 360<br><span>連結編程、感測器與 3D 設計</span></div></article>
+        <article><b>F3</b><div><strong>核心內容：</strong>計算機概論、C++、ESP32<br><span>以智能裝置串連語法、硬件與安全</span></div></article>
+        <article><b>F4</b><div><strong>核心內容：</strong>Adobe 多媒體、ESP32 進階<br><span>發展智慧校園原型與多媒體表達</span></div></article>
+        <article><b>F5</b><div><strong>核心內容：</strong>Excel／MOS、Python、HTML／CSS<br><span>建立數據處理及網頁發布能力</span></div></article>
+        <article><b>F6</b><div><strong>核心內容：</strong>MySQL、Excel／Python 數據分析<br><span>完成畢業數據專題與分析報告</span></div></article>
+      </div>
+
+      <div class="info-box">發展主線：數碼基礎 → 編程與硬件 → 多媒體與網頁 → 數據分析與專題。</div>
+
+      <details open>
+        <summary>查看基本學力要求對標重點</summary>
+        <ul>
+          <li><strong>概念與認知：</strong>電腦架構、演算法、物聯網、人工智能及數據概念；</li>
+          <li><strong>應用與創作：</strong>程式設計、硬件控制、3D 建模、多媒體、網頁及數據分析；</li>
+          <li><strong>溝通與合作：</strong>專題匯報、共同解難、數碼作品展示及跨學科學習；</li>
+          <li><strong>道德與責任：</strong>資訊安全、密碼與私隱、知識產權、AI 倫理及負責任使用科技。</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>查看專題式學習與評核安排</summary>
+        <p>各級逐步安排 EV3 機械人解難、Micro:bit／ESP32 感測器作品、C++ 程式設計、Office 與多媒體作品、網頁、小程序及數據分析專題。</p>
+        <p>評核方向由單一測驗擴展至「平時表現＋實作／專題」，觀察學生是否能夠：</p>
+        <ol>
+          <li>理解及分析問題；</li><li>設計可行方案；</li><li>編寫、測試與除錯；</li><li>展示作品並解釋設計決定；</li><li>遵守私隱、版權和安全要求。</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="page" id="achievements">
+      <header class="page-title">
+        <p>COMPETITION IMPACT · 2025–2026</p><h2>競賽拔尖</h2><span>用數據呈現學生成果的數量、廣度與高度</span>
+      </header>
+      <section class="competition-hero">
+        <div><p class="section-kicker">AWARD VOLUME</p><strong>32</strong><h3>項獲獎紀錄</h3><p>橫跨 12 項賽事、6 個能力範圍，從本地競賽一直走到國際代表隊。</p></div>
+        <div class="competition-kpis">
+          <article><strong>14</strong><span>獲獎學生</span></article>
+          <article><strong>2.29</strong><span>人均獲獎項數</span></article>
+          <article><strong>8</strong><span>重複獲獎學生</span></article>
+          <article><strong>5</strong><span>個人最高獲獎項數</span></article>
+        </div>
+      </section>
+
+      <p class="caption">來源：2526_競賽成績_20260706.csv；排除初二丁及初三戊。同一學生多次獲獎會在「獲獎紀錄」分別計算。</p>
+
+      <div class="level-mix"><span><b>24</b> 本地</span><span><b>7</b> 港澳／大灣區</span><span><b>1</b> 國際</span></div>
+
+      <h3 class="section-title">代表性競賽項目與成績</h3>
+      <div class="table-wrap">
+        <table id="achievement-table">
+          <thead><tr><th>競賽項目</th><th>層級</th><th>獲獎成績</th><th>能力範圍</th></tr></thead>
+          <tbody>
+            <tr><td>澳門信息學奧林匹克選拔賽</td><td>本地</td><td>5 項銀獎</td><td>算法／編程</td></tr>
+            <tr><td>微信小程序全球創新挑戰賽（澳門區）</td><td>本地</td><td>4 項特優獎、5 項一等獎</td><td>網站／小程序</td></tr>
+            <tr><td>全澳學生手機網站技術技能比賽</td><td>本地</td><td>2 項亞軍</td><td>網站開發</td></tr>
+            <tr><td>2026 年港澳青少年網絡技能競賽</td><td>本地</td><td>優異獎</td><td>AI／網絡安全</td></tr>
+            <tr><td>港澳青少年網絡技能競賽</td><td>港澳大灣區</td><td>2 項金獎</td><td>AI／網絡安全</td></tr>
+            <tr><td>大灣區青少年人工智能及網絡安全挑戰賽</td><td>港澳大灣區</td><td>2 項智慧實踐獎、2 項卓越商業應用獎</td><td>AI／網絡安全</td></tr>
+            <tr><td>International Cyber Olympiad in AI（澳洲）</td><td>國際</td><td>入選澳門隊</td><td>AI／網絡安全</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="section-title">能力與班級貢獻</h3>
+      <div class="analytics-grid single-chart-row">
+        <div class="chart compact-chart" id="competition-capability-chart"></div>
+        <div class="chart compact-chart" id="competition-class-chart"></div>
+      </div>
+
+      <h3 class="section-title">年度標誌性成果</h3>
+      <div class="feature-grid signature-grid">
+        <article><strong>INTERNATIONAL</strong><h3>入選澳門隊</h3><p>International Cyber Olympiad in AI（澳洲）</p></article>
+        <article><strong>REGIONAL</strong><h3>2 項金獎</h3><p>港澳青少年網絡技能競賽</p></article>
+        <article><strong>DEPTH</strong><h3>5 銀·信息學</h3><p>澳門信息學奧林匹克選拔賽</p></article>
+      </div>
+
+      <h3 class="section-title">能力範圍</h3>
+      <div class="capability-tags"><span>網站／小程序 <b>11</b></span><span>AI／網絡安全 <b>8</b></span><span>算法／編程 <b>6</b></span><span>資訊科技綜合 <b>5</b></span><span>智能裝置 <b>1</b></span><span>Office 應用 <b>1</b></span></div>
+      <div class="info-box">普及課程 → 專題實作 → 競賽拔尖 → 代表隊培育</div>
+    </section>
+
+    <section class="page" id="f5-showcase">
+      <header class="page-title">
+        <p>FORM 5 SHOWCASE · 2025–2026</p><h2>F5 成果展</h2><span>把課堂能力轉化為作品、證書與升學優勢</span>
+      </header>
+
+      <div class="showcase-hero">
+        <div>
+          <p class="section-kicker">BEST OF THE YEAR</p>
+          <h3>26 個網站，26 份數碼名片。</h3>
+          <p>F5B 全班完成個人網站，從 HTML／CSS 實作、內容組織到網上發佈，將學習成果變成可瀏覽、可分享的個人作品集。</p>
+          <a class="primary-link" href="https://f5b.chonin.top/data/storage/shared/f5b_teacher_secure_access_9b0a1c7e8f5/control_panel_console_3a9b/" target="_blank" rel="noopener noreferrer">Explore 26 personal websites ↗</a>
+        </div>
+        <div class="showcase-score"><strong>100%</strong><span>個人網站完成率</span><small>26／26 份有效作品連結</small></div>
+      </div>
+
+      <h3 class="section-title">學業成績</h3>
+      <div class="metrics four">
+        <article><strong>78.6</strong><span>F5B 全年平均分</span></article>
+        <article><strong>96.2%</strong><span>F5B 合格率</span></article>
+        <article><strong>42.3%</strong><span>80 分或以上</span></article>
+        <article><strong>97.6%</strong><span>F5 整體合格率</span></article>
+      </div>
+
+      <section class="certificate-focus">
+        <div class="focus-copy">
+          <p class="section-kicker">UNIVERSITY READINESS</p>
+          <h3>F5B 專業證書</h3>
+          <p>MOS 與 Office 證書為大學申請、個人履歷及後續學習提供可驗證的數碼能力證明。</p>
+        </div>
+        <div class="metrics three certificate-metrics">
+          <article><strong>88.5%</strong><span>取證成功率</span><small>23／26 人至少取得一張</small></article>
+          <article><strong>1.73</strong><span>人均證書數</span><small>26 人合共取得 45 張</small></article>
+          <article><strong>18 人</strong><span>恰好取得兩張</span><small>另有 1 人取得超過兩張</small></article>
+        </div>
+        <div class="certificate-visual">
+          <img src="assets/f5b_certificate_results.png" alt="F5B 學生 MOS 及 Office 證書成績表">
+          <div><strong>45 張專業證書</strong><p>Excel Associate／Expert、PowerPoint 及 Word 等證書，展現數據處理、文件製作與簡報應用能力。</p></div>
+        </div>
+        <div class="chart" id="certificate-chart"></div>
+      </section>
+
+      <h3 class="section-title">從課堂走向競賽</h3>
+      <div class="feature-grid">
+        <article><strong>01</strong><h3>微信小程序</h3><p>F5B 學生於全球創新挑戰賽澳門區取得特優獎。</p></article>
+        <article><strong>02</strong><h3>網絡技能</h3><p>F5B 學生於 2026 港澳青少年網絡技能競賽取得優異獎。</p></article>
+        <article><strong>03</strong><h3>升學作品集</h3><p>網站、證書與競賽互相印證，形成可用於升學的完整數碼履歷。</p></article>
+      </div>
+    </section>
+
+    <section class="page" id="transition">
+      <header class="page-title">
+        <p>ANNUAL REPORT · 2025–2026</p><h2>小中銜接</h2><span>P6–F1 銜接能力、診斷任務及分層支援</span>
+      </header>
+      <h3 class="section-title">目前情況</h3>
+      <p class="lead">P6 學生已接觸 Excel、Micro:bit、Python、AI 及網絡安全；F1 應以診斷任務辨識差異，避免重複學習或過快進入 EV3 專題。</p>
+      <div class="callout">來年可落地的一個改善點：建立「小六至初一銜接能力清單＋開學診斷任務」。</div>
+
+      <h3 class="section-title">開學診斷任務清單</h3>
+      <div class="checklist">
+        <label><input type="checkbox">檔案及資料夾管理</label>
+        <label><input type="checkbox">英文輸入與文件排版</label>
+        <label><input type="checkbox">簡報及多媒體表達</label>
+        <label><input type="checkbox">順序、條件與循環概念</label>
+        <label><input type="checkbox">基本程式除錯</label>
+        <label><input type="checkbox">感測器及輸入／輸出概念</label>
+        <label><input type="checkbox">密碼、私隱及知識產權</label>
+      </div>
+
+      <h3 class="section-title">學生分組邏輯</h3>
+      <div class="feature-grid">
+        <article><h3>基礎組</h3><p>補足檔案管理、Office 及基礎程式概念。</p></article>
+        <article><h3>進階組</h3><p>直接進入 EV3、感測器及專題任務。</p></article>
+        <article><h3>拔尖組</h3><p>加入 AI、進階編程或競賽延伸任務。</p></article>
+      </div>
+      <div class="success-box">建議：以 P6 畢業 IT Capstone 作作品交接，F1 首兩週完成診斷。</div>
+
+      <h3 class="section-title">落地流程</h3>
+      <div class="steps">
+        <article><b>1｜共同訂標</b><p>P6 與 F1 教師確定 8–10 項核心能力。</p></article>
+        <article><b>2｜作品交接</b><p>P6 以 IT Capstone 呈現能力並保留學習檔案。</p></article>
+        <article><b>3｜開學診斷</b><p>F1 首兩週完成簡報及程式小挑戰。</p></article>
+        <article><b>4｜分層支援</b><p>按結果安排基礎、進階及拔尖任務。</p></article>
+      </div>
+
+      <div class="info-box">所需支援：一次 P6–F1 共同備課、共用診斷量規及學生作品交接空間。</div>
+    </section>
+
+    <section class="page" id="analytics">
+      <header class="page-title">
+        <p>ANNUAL REPORT · 2025–2026</p><h2>數據評鑑</h2>
+      </header>
+      <div class="metrics">
+        <article><strong>300</strong><span>有全年成績學生</span></article>
+        <article><strong>76.4</strong><span>整體平均分</span></article>
+        <article><strong>95.0%</strong><span>全年成績合格率</span></article>
+        <article><strong>110</strong><span>80 分或以上學生</span></article>
+      </div>
+      <p class="caption">成績統計覆蓋 F1A–F5B 共 10 班，以全年總成績 Mark 計算，60 分或以上為合格。</p>
+
+      <h3 class="section-title">各級全年成績</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>年級</th><th>學生人數</th><th>平均分</th><th>合格人數</th><th>不合格人數</th><th>合格率</th><th>80 分或以上</th></tr></thead>
+          <tbody>
+            <tr><td>F1</td><td>56</td><td>75.0</td><td>56</td><td>0</td><td>100.0%</td><td>15</td></tr>
+            <tr><td>F2</td><td>67</td><td>78.7</td><td>67</td><td>0</td><td>100.0%</td><td>31</td></tr>
+            <tr><td>F3</td><td>63</td><td>73.1</td><td>49</td><td>14</td><td>77.8%</td><td>19</td></tr>
+            <tr><td>F4</td><td>72</td><td>78.4</td><td>72</td><td>0</td><td>100.0%</td><td>33</td></tr>
+            <tr><td>F5</td><td>42</td><td>75.7</td><td>41</td><td>1</td><td>97.6%</td><td>12</td></tr>
+            <tr class="total-row"><td>整體</td><td>300</td><td>76.4</td><td>285</td><td>15</td><td>95.0%</td><td>110</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="section-title">證書與競賽成果</h3>
+      <div class="metrics three">
+        <article><strong>26</strong><span>考取至少一張證書的學生</span></article>
+        <article><strong>48</strong><span>證書總數</span></article>
+        <article><strong>14</strong><span>校外比賽獲獎學生</span></article>
+      </div>
+      <div class="outcome-grid compact-top">
+        <article><h3>專業證書</h3><p>證書記錄涵蓋 29 名學生，其中 26 人取得至少一張 MOS 或相關 Office 證書，按記錄學生計的取證率為 89.7%。</p></article>
+        <article><h3>競賽拔尖</h3><p>排除初二丁、初三戊後，共 14 名獨立學生於校外比賽獲獎，累計 32 項獲獎紀錄。</p></article>
+      </div>
+
+      <h3 class="section-title">現階段成果摘要</h3>
+      <div class="outcome-grid">
+        <article><h3>課程管理</h3><ul><li>完成 P1–F6 課程梳理及基本學力對標；</li><li>F1 STEM、F3 IT 及 F5 IT 建立清晰的目標與代表專題；</li><li>初中聚焦數碼基礎與硬件，高中聚焦創作與數據。</li></ul></article>
+        <article><h3>教學與評核</h3><ul><li>各級加入程式、硬件及多媒體作品；</li><li>提高實作評核比重，逐步共用核心任務與評分標準。</li></ul></article>
+        <article><h3>學生發展</h3><p>競賽領域由程式設計擴展至算法、小程序、網站、AI、網絡安全、Office 及智能裝置，並涵蓋本地、區域和國際層級。</p></article>
+        <article><h3>教師與科組發展</h3><p>推動共同備課、課業審視、觀課評課及 AI 校本培訓。</p></article>
+      </div>
+
+      <h3 class="section-title">成績互動圖表</h3>
+      <div class="chart" id="bar-chart"></div>
+      <div class="chart" id="histogram"></div>
+      <div class="info-box">圖表數值由全年成績檔計算；成績分布以五個分數區間匯總，不顯示學生姓名。</div>
+
+      <h3 class="section-title">可再改進／優化之處</h3>
+      <div class="danger-box">核心改善：建立更一致、更可量化的課程評鑑和教學證據系統。</div>
+      <div class="outcome-grid">
+        <article><h3>目前需要處理</h3><ul><li>F3 合格率 77.8%，14 名學生需針對性支援；</li><li>同級進度、評分與作品量規需更一致；</li><li>補齊 F6 成績及前後測增值指標。</li></ul></article>
+        <article><h3>來年具體做法</h3><ol><li>每級訂立一項代表作品；</li><li>共用核心進度與評量量規；</li><li>每月抽樣作品進行校準；</li><li>記錄達標率、常見錯誤與增值。</li></ol></article>
+      </div>
+      <details open><summary>科組所需支援</summary><ul><li>每月一次約 30 分鐘的固定科組校準時間；</li><li>統一的雲端資源庫與作品記錄表；</li><li>學校層面支持跨級共同備課及學生作品交接。</li></ul></details>
+    </section>
+  </main>
+
+  <script src="sketch.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

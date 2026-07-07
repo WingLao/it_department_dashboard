@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT Dashboard Infinity Logo</title>
+  __P5_SCRIPT__
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, "Noto Sans TC", "PingFang TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 210, 74, 0.28);
+      border-radius: 26px;
+      background: #000;
+      box-shadow: 0 22px 50px rgba(4, 15, 27, 0.22);
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 52%;
+      height: 100%;
+      padding: 30px 34px 26px;
+      background: linear-gradient(90deg, #000 68%, transparent 100%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #f4bd32;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+    h1 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+    .subtitle {
+      margin: 13px 0 0;
+      color: #aeb7c2;
+      font-size: 14px;
+    }
+    .route {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f5e8c4;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .route span:not(.arrow) {
+      padding: 6px 10px;
+      border: 1px solid rgba(244, 189, 50, 0.3);
+      border-radius: 999px;
+      background: rgba(30, 23, 8, 0.72);
+    }
+    .arrow { color: #f4bd32; }
+    .p5-error {
+      position: absolute;
+      right: 16px;
+      bottom: 12px;
+      z-index: 5;
+      color: #ffd7cf;
+      font-size: 11px;
+    }
+    @media (max-width: 720px) {
+      #hero { height: 274px; border-radius: 16px; }
+      .content { width: 70%; padding: 24px 22px 22px; }
+      .route { gap: 4px; font-size: 10px; }
+      .route span:not(.arrow) { padding: 5px 7px; }
+    }
+  </style>
+</head>
+<body>
+  <section id="hero" aria-label="資訊科技科組年度匯報">
+    <div class="content">
+      <div>
+        <p class="eyebrow">2025–2026 · INFORMATION TECHNOLOGY</p>
+        <h1>讓課程成為<br>人才成長的軌跡。</h1>
+        <p class="subtitle">Curriculum × Making × Data × Talent</p>
+      </div>
+      <div class="route">
+        <span>基礎</span><span class="arrow">→</span>
+        <span>實作</span><span class="arrow">→</span>
+        <span>選才</span><span class="arrow">→</span>
+        <span>發展</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Logo source: /Users/macbook/Desktop/P5js/infinity_logo/sketch.js
+    // The original formula, uniform scale and gold palette are preserved.
+    const PARTICLE_COUNT = 260;
+    const BASE_SPEED = 0.0045;
+    let logoParticles = [];
+    let pointerLines = [];
+    let logoScale;
+    let parentCanvas;
+    let parentDocument;
+    let parentWindow;
+    let pointerX = -1000;
+    let pointerY = -1000;
+    let pointerHandler;
+
+    function lemniscate(angle, scale) {
+      const sine = sin(angle);
+      const denominator = 1 + sine * sine;
+      return {
+        x: (scale * cos(angle)) / denominator,
+        y: (scale * sine * cos(angle)) / denominator
+      };
+    }
+
+    class LogoParticle {
+      constructor(angle) {
+        this.angle = angle;
+        this.speed = BASE_SPEED * random(0.6, 1.5);
+        this.size = random(1.2, 3.4);
+        this.offset = random(-6, 6);
+        this.offsetAngle = random(TWO_PI);
+        this.colour = color(
+          random(212, 255),
+          random(160, 205),
+          random(20, 80)
+        );
+      }
+
+      update() {
+        this.angle = (this.angle + this.speed) % TWO_PI;
+        this.offsetAngle += 0.01;
+      }
+
+      show(originX, originY, breath) {
+        const position = lemniscate(this.angle, logoScale);
+        const x = originX + position.x + this.offset * cos(this.offsetAngle);
+        const y = originY + position.y + this.offset * sin(this.offsetAngle) * 0.6;
+
+        noStroke();
+        fill(red(this.colour), green(this.colour), blue(this.colour), 17.6 * breath);
+        circle(x, y, this.size * 5);
+        fill(red(this.colour), green(this.colour), blue(this.colour), 152 * breath);
+        circle(x, y, this.size);
+      }
+    }
+
+    function heroBounds() {
+      const frame = window.frameElement;
+      return frame ? frame.getBoundingClientRect() : { left: 0, top: 0, width, height: 290 };
+    }
+
+    function updateScale() {
+      const bounds = heroBounds();
+      // One uniform value controls both axes: the logo ratio cannot be distorted.
+      logoScale = min(bounds.width * 0.19, bounds.height * 0.38);
+    }
+
+    window.setup = function () {
+      parentWindow = window.parent;
+      parentDocument = parentWindow.document;
+      parentDocument.getElementById("p5-fullscreen-lines")?.remove();
+      parentCanvas = createCanvas(parentWindow.innerWidth, parentWindow.innerHeight);
+      parentCanvas.elt.id = "p5-fullscreen-lines";
+      parentCanvas.elt.style.position = "fixed";
+      parentCanvas.elt.style.inset = "0";
+      parentCanvas.elt.style.zIndex = "999999";
+      parentCanvas.elt.style.pointerEvents = "none";
+      parentCanvas.elt.style.background = "transparent";
+      parentDocument.body.appendChild(parentCanvas.elt);
+      pixelDensity(1);
+      logoParticles = Array.from(
+        { length: PARTICLE_COUNT },
+        () => new LogoParticle(random(TWO_PI))
+      );
+      updateScale();
+
+      pointerHandler = event => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        pointerLines.push({ x: pointerX, y: pointerY, life: 255 });
+        if (pointerLines.length > 36) pointerLines.shift();
+      };
+      parentDocument.addEventListener("pointermove", pointerHandler, { passive: true });
+    };
+
+    window.windowResized = function () {
+      resizeCanvas(parentWindow.innerWidth, parentWindow.innerHeight);
+      updateScale();
+    };
+
+    function drawPointerLines() {
+      noFill();
+      for (let i = pointerLines.length - 1; i > 0; i -= 1) {
+        const current = pointerLines[i];
+        const previous = pointerLines[i - 1];
+        current.life -= 8;
+        stroke(232, 189, 72, current.life * 0.46);
+        strokeWeight(map(i, 1, pointerLines.length, 0.7, 2.2));
+        line(previous.x, previous.y, current.x, current.y);
+        if (current.life <= 0) pointerLines.splice(i, 1);
+      }
+    }
+
+    window.draw = function () {
+      clear();
+      drawPointerLines();
+
+      const bounds = heroBounds();
+      const originX = bounds.left + bounds.width * 0.79;
+      const originY = bounds.top + bounds.height * 0.5;
+      const breath = 0.75 + 0.25 * sin(frameCount * 0.026);
+
+      blendMode(ADD);
+      for (const particle of logoParticles) {
+        particle.update();
+        particle.show(originX, originY, breath);
+      }
+      blendMode(BLEND);
+    };
+
+    window.addEventListener("beforeunload", () => {
+      if (pointerHandler) parentDocument?.removeEventListener("pointermove", pointerHandler);
+      if (parentCanvas?.elt?.isConnected) parentCanvas.elt.remove();
+    });
+  </script>
+</body>
+</html>

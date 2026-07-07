@@ -1,0 +1,9 @@
+{
+  "name": "cdsj5-it-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "p5": "1.9.4",
+    "plotly.js-dist-min": "2.35.2"
+  }
+}
