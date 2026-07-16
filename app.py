@@ -400,23 +400,6 @@ def render_transition() -> None:
         st.markdown("### 拔尖組")
         st.write("加入 AI、進階編程或競賽延伸任務。")
 
-    st.success("建議：以 P6 畢業 IT Capstone 作作品交接，F1 首兩週完成診斷。")
-
-    st.subheader("落地流程")
-    step1, step2, step3, step4 = st.columns(4)
-    step1.info("**1｜共同訂標**\n\nP6 與 F1 教師確定 8–10 項核心能力。")
-    step2.info("**2｜作品交接**\n\nP6 以 IT Capstone 呈現能力並保留學習檔案。")
-    step3.info("**3｜開學診斷**\n\nF1 首兩週完成簡報及程式小挑戰。")
-    step4.info("**4｜分層支援**\n\n按結果安排基礎、進階及拔尖任務。")
-
-    with st.expander("所需支援"):
-        st.markdown(
-            """
-            共同備課、共用量規、P6 作品交接及跨級協作時間。
-            """
-        )
-
-
 def render_analytics() -> None:
     page_header("數據評鑑", "日常監測課程成效、學生達標及科組行動")
 
