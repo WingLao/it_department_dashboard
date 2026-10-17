@@ -5,7 +5,7 @@
 為確保 p5.js 可使用全畫面滑鼠事件，主要版本已改為 `index.html + styles.css + sketch.js`，不再受 Streamlit iframe 限制。p5.js 安裝於本地，不依賴 CDN。
 
 ```bash
-cd "/Users/laoiongtek/Desktop/CDSJ5/資訊科技科組長/it_department_dashboard"
+cd ~/Projects/it_department_dashboard
 npm install
 python3 -m http.server 8000
 ```
@@ -57,3 +57,16 @@ streamlit run app.py
 
 - `程式語言_成績.csv`
 - `聖五 26-27 學年 IT 教學規劃.xlsx`
+
+## 測試與發佈流程
+
+| 分支 | 網址 | 用途 |
+|---|---|---|
+| `dev` | https://winglao.github.io/it_department_dashboard/staging/ | 測試環境 |
+| `master` | https://winglao.github.io/it_department_dashboard/ | 正式環境（受保護，只能經 PR 合併） |
+
+1. 開工：`git switch dev && git pull`
+2. 本機預覽：`python3 -m http.server 8000` → http://localhost:8000
+3. 上傳到測試環境：`git add . && git commit -m "說明" && git push`（約 1 分鐘後更新 `/staging/`）
+4. 正式發佈：`gh pr create --base master --head dev --fill`，確認後 `gh pr merge --merge`
+5. 另一台 Mac 第一次使用：`git clone https://github.com/WingLao/it_department_dashboard.git ~/Projects/it_department_dashboard`
