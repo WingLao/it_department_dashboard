@@ -1,0 +1,59 @@
+name: Deploy Pages (production + staging)
+
+# master → https://winglao.github.io/it_department_dashboard/
+# dev    → https://winglao.github.io/it_department_dashboard/staging/
+on:
+  push:
+    branches: [master, dev]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master (production)
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          path: prod
+
+      - name: Checkout dev (staging)
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          path: dev
+        continue-on-error: true
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site/staging
+          rsync -a --exclude '.git' --exclude '.github' prod/ _site/
+          if [ -d dev ]; then
+            rsync -a --exclude '.git' --exclude '.github' dev/ _site/staging/
+            # Keep staging out of search results
+            sed -i 's#<head>#<head>\n  <meta name="robots" content="noindex">#' _site/staging/index.html
+          fi
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
